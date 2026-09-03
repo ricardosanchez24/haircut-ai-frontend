@@ -171,6 +171,30 @@ Esto no es un botón ni enlace para compartir. Es solo contenido informativo.
 - **Actualización:** Utilizar MCPs configurados para consultar documentación.
 - **Objetivo:** Conocimiento al día antes de generar código.
 
+---
+
+## 📋 Directrices de Desarrollo
+
+### 🔄 Flujo de Git
+- **Push:** Solo subir cambios después de aprobación explícita del usuario.
+- **Commit:** Cada tarea completada = 1 commit descriptivo + push.
+- **Merge:** Solo cuando la feature esté completa Y el usuario lo indique explícitamente.
+
+### 📝 Explicación de Cambios
+- **Antes de push:** Mostrar cambios con comentarios explicando cada línea nueva.
+- **Después de aprobación:** Eliminar comentarios del código.
+
+### 🏗️ Arquitectura de Componentes
+- **Separación de responsabilidades:** Cada componente hace una sola cosa.
+- **Sub-componentes:** Extraer partes reutilizables en componentes separados.
+
+### ❓ Resolución de Dudas
+- **Prioridad:** Responder preguntas del usuario antes de continuar con la siguiente tarea.
+- **Restricción:** No avanzar si el usuario tiene dudas pendientes.
+
+### 🧪 TDD
+- **Ciclo obligatorio:** RED (test falla) → GREEN (código mínimo) → REFACTOR (limpiar).
+- **Cada función:** Primero escribir test, luego implementar.
 
 # spec/ — Spec Driven Development (Plantilla + Diagrama)
 
