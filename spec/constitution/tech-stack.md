@@ -18,5 +18,5 @@
 ## Convenciones
 - Sin react-router-dom
 - Estados de React para navegación
-- Validaciones en cliente (JPG/PNG, max 5MB)
+- Validaciones en cliente (JPG/PNG, max 10MB)
 - 100% responsive con Tailwind

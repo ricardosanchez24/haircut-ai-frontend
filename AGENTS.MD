@@ -23,7 +23,7 @@ El usuario sube una foto de su rostro, el cliente la envía al backend (FastAPI)
 │    con ayuda de la IA"                  │
 │  - Botón/upload para seleccionar foto   │
 │  - Vista previa de imagen seleccionada  │
-│  - Validaciones: JPG/PNG, max 5MB       │
+│  - Validaciones: JPG/PNG, max 10MB      │
 │  - Botón "Analizar"                     │
 └──────────────────┬──────────────────────┘
                    │ usuario hace click en "Analizar"
@@ -128,7 +128,7 @@ Esto no es un botón ni enlace para compartir. Es solo contenido informativo.
 
 ### 🛡️ Validaciones en Cliente
 - **Formatos:** Aceptar únicamente archivos JPG y PNG.
-- **Tamaño:** Validar un peso máximo de 5MB antes de enviar.
+- **Tamaño:** Validar un peso máximo de 10MB antes de enviar.
 
 ### 🎨 Experiencia de Usuario (UX)
 - **Previsualización:** Mostrar vista previa de la imagen antes de enviarla.

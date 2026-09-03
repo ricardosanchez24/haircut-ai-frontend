@@ -9,9 +9,9 @@ El usuario selecciona una foto de su rostro desde su dispositivo, ve una vista p
 1. El usuario puede hacer click en un botón/zona para seleccionar una imagen
 2. Se muestra una vista previa de la imagen seleccionada
 3. Solo se aceptan archivos JPG y PNG
-4. El archivo no puede pesar más de 5MB
+4. El archivo no puede pesar más de 10MB
 5. Si el formato es inválido, se muestra error: "Formato no válido. Usa JPG o PNG"
-6. Si pesa más de 5MB, se muestra error: "La imagen supera los 5MB"
+6. Si pesa más de 10MB, se muestra error: "La imagen supera los 10MB"
 7. Hay un botón "Analizar" que está deshabilitado hasta que haya una imagen válida
 8. El diseño es responsive (móvil y escritorio)
 
@@ -26,7 +26,7 @@ Selecciona archivo
     ↓         ↓
    Sí        No → Muestra error de formato
     ↓
- ¿Pesa ≤ 5MB?
+  ¿Pesa ≤ 10MB?
   ↓         ↓
   Sí        No → Muestra error de tamaño
   ↓

@@ -22,13 +22,13 @@
 
 - [ ] Crear función validateFile(file)
 - [ ] Validar formato: solo .jpg, .jpeg, .png
-- [ ] Validar tamaño: máximo 5MB
+- [ ] Validar tamaño: máximo 10MB
 - [ ] Retornar objeto { valid, error }
 
 ## Errores
 
 - [ ] Mostrar error "Formato no válido. Usa JPG o PNG"
-- [ ] Mostrar error "La imagen supera los 5MB"
+- [ ] Mostrar error "La imagen supera los 10MB"
 - [ ] Limpiar error al seleccionar nueva imagen
 
 ## Botón Analizar

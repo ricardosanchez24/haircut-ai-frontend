@@ -23,7 +23,7 @@
 
 ### validateFile(file)
 - Validar formato: solo .jpg, .jpeg, .png
-- Validar tamaño: máximo 5MB (5 * 1024 * 1024 bytes)
+- Validar tamaño: máximo 10MB (10 * 1024 * 1024 bytes)
 - Retorna `{ valid: boolean, error: string }`
 
 ### formatFileSize(bytes)
