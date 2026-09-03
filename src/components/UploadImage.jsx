@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import UploadButton from './UploadButton'
 import ImagePreview from './ImagePreview'
+import { validateFile } from '../utils/validateFile'
 
 function UploadImage() {
   const [file, setFile] = useState(null)
@@ -12,6 +13,14 @@ function UploadImage() {
   const handleFileSelect = (e) => {
     const selectedFile = e.target.files[0]
     if (selectedFile) {
+      const validation = validateFile(selectedFile)
+      
+      if (!validation.valid) {
+        setError(validation.error)
+        setIsValid(false)
+        return
+      }
+
       if (preview) {
         URL.revokeObjectURL(preview)
       }

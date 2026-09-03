@@ -2,6 +2,14 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import UploadImage from '../UploadImage'
 
+const selectFile = (fileInput, file) => {
+  fireEvent.change(fileInput, { target: { files: [file] } })
+}
+
+const createFile = (name, type, size = 1024) => {
+  return new File(['x'.repeat(size)], name, { type })
+}
+
 describe('UploadImage', () => {
   it('renders upload zone with text', () => {
     render(<UploadImage />)
@@ -40,9 +48,7 @@ describe('UploadImage', () => {
     render(<UploadImage />)
     
     const fileInput = document.querySelector('input[type="file"]')
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
-    
-    fireEvent.change(fileInput, { target: { files: [file] } })
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
     
     expect(screen.getByRole('img', { name: /vista previa/i })).toBeInTheDocument()
   })
@@ -51,9 +57,7 @@ describe('UploadImage', () => {
     render(<UploadImage />)
     
     const fileInput = document.querySelector('input[type="file"]')
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
-    
-    fireEvent.change(fileInput, { target: { files: [file] } })
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
     
     expect(screen.queryByRole('button', { name: /selecciona una foto/i })).not.toBeInTheDocument()
   })
@@ -62,9 +66,7 @@ describe('UploadImage', () => {
     render(<UploadImage />)
     
     const fileInput = document.querySelector('input[type="file"]')
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
-    
-    fireEvent.change(fileInput, { target: { files: [file] } })
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
     
     expect(screen.getByRole('button', { name: /cambiar imagen/i })).toBeInTheDocument()
   })
@@ -73,9 +75,7 @@ describe('UploadImage', () => {
     render(<UploadImage />)
     
     const fileInput = document.querySelector('input[type="file"]')
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
-    
-    fireEvent.change(fileInput, { target: { files: [file] } })
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
     
     const changeButton = screen.getByRole('button', { name: /cambiar imagen/i })
     fireEvent.click(changeButton)
@@ -89,14 +89,60 @@ describe('UploadImage', () => {
     render(<UploadImage />)
     
     const fileInput = document.querySelector('input[type="file"]')
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
-    
-    fireEvent.change(fileInput, { target: { files: [file] } })
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
     
     const changeButton = screen.getByRole('button', { name: /cambiar imagen/i })
     fireEvent.click(changeButton)
     
     expect(revokeSpy).toHaveBeenCalledTimes(1)
     revokeSpy.mockRestore()
+  })
+
+  it('shows error when file format is invalid', () => {
+    render(<UploadImage />)
+    
+    const fileInput = document.querySelector('input[type="file"]')
+    selectFile(fileInput, createFile('test.gif', 'image/gif'))
+    
+    expect(screen.getByText(/formato no válido/i)).toBeInTheDocument()
+  })
+
+  it('shows error when file size exceeds 10MB', () => {
+    render(<UploadImage />)
+    
+    const fileInput = document.querySelector('input[type="file"]')
+    const largeFile = createFile('large.jpg', 'image/jpeg', 10 * 1024 * 1024 + 1)
+    selectFile(fileInput, largeFile)
+    
+    expect(screen.getByText(/la imagen supera los 10mb/i)).toBeInTheDocument()
+  })
+
+  it('does not show preview when file is invalid', () => {
+    render(<UploadImage />)
+    
+    const fileInput = document.querySelector('input[type="file"]')
+    selectFile(fileInput, createFile('test.gif', 'image/gif'))
+    
+    expect(screen.queryByRole('img', { name: /vista previa/i })).not.toBeInTheDocument()
+  })
+
+  it('shows upload button when file is invalid', () => {
+    render(<UploadImage />)
+    
+    const fileInput = document.querySelector('input[type="file"]')
+    selectFile(fileInput, createFile('test.gif', 'image/gif'))
+    
+    expect(screen.getByRole('button', { name: /selecciona una foto/i })).toBeInTheDocument()
+  })
+
+  it('clears error when selecting new valid file', () => {
+    render(<UploadImage />)
+    
+    const fileInput = document.querySelector('input[type="file"]')
+    selectFile(fileInput, createFile('test.gif', 'image/gif'))
+    expect(screen.getByText(/formato no válido/i)).toBeInTheDocument()
+    
+    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
+    expect(screen.queryByText(/formato no válido/i)).not.toBeInTheDocument()
   })
 })
