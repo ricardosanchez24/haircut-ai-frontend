@@ -1,13 +1,15 @@
 import { useState, useRef } from 'react'
 import UploadButton from './UploadButton'
 import ImagePreview from './ImagePreview'
+import AnalyzeButton from './AnalyzeButton'
 import { validateFile } from '../utils/validateFile'
 
-function UploadImage() {
+function UploadImage({ onAnalyze }) {
   const [file, setFile] = useState(null)
   const [preview, setPreview] = useState(null)
   const [error, setError] = useState('')
   const [isValid, setIsValid] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const fileInputRef = useRef(null)
 
   const handleFileSelect = (e) => {
@@ -43,9 +45,15 @@ function UploadImage() {
     setPreview(null)
     setError('')
     setIsValid(false)
+    setIsLoading(false)
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
+  }
+
+  const handleAnalyze = () => {
+    setIsLoading(true)
+    onAnalyze(file)
   }
 
   return (
@@ -66,6 +74,15 @@ function UploadImage() {
 
       {error && (
         <p className="mt-2 text-red-500 text-sm">{error}</p>
+      )}
+
+      {preview && isValid && (
+        <div className="mt-4">
+          <AnalyzeButton 
+            onClick={handleAnalyze} 
+            disabled={isLoading} 
+          />
+        </div>
       )}
     </div>
   )

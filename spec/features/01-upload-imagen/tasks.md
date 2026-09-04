@@ -2,40 +2,40 @@
 
 ## Componente
 
-- [ ] Crear archivo `UploadImage.jsx` en `src/components/`
-- [ ] Definir estados: file, preview, error, isValid
+- [x] Crear archivo `UploadImage.jsx` en `src/components/`
+- [x] Definir estados: file, preview, error, isValid
 
 ## Input de Archivo
 
-- [ ] Crear input de archivo oculto (type="file")
-- [ ] Configurar accept="image/*"
-- [ ] Crear función para abrir el input programáticamente
+- [x] Crear input de archivo oculto (type="file")
+- [x] Configurar accept="image/*"
+- [x] Crear función para abrir el input programáticamente
 
 ## Zona de Upload
 
-- [ ] Crear zona clickable con icono de upload
-- [ ] Agregar texto guía: "Selecciona una foto de tu rostro"
-- [ ] Mostrar vista previa cuando haya imagen seleccionada
-- [ ] Estilizar zona con borde punteado y fondo gris
+- [x] Crear zona clickable con icono de upload
+- [x] Agregar texto guía: "Selecciona una foto de tu rostro"
+- [x] Mostrar vista previa cuando haya imagen seleccionada
+- [x] Estilizar zona con borde punteado y fondo gris
 
 ## Validaciones
 
-- [ ] Crear función validateFile(file)
-- [ ] Validar formato: solo .jpg, .jpeg, .png
-- [ ] Validar tamaño: máximo 10MB
-- [ ] Retornar objeto { valid, error }
+- [x] Crear función validateFile(file)
+- [x] Validar formato: solo .jpg, .jpeg, .png
+- [x] Validar tamaño: máximo 10MB
+- [x] Retornar objeto { valid, error }
 
 ## Errores
 
-- [ ] Mostrar error "Formato no válido. Usa JPG o PNG"
-- [ ] Mostrar error "La imagen supera los 10MB"
-- [ ] Limpiar error al seleccionar nueva imagen
+- [x] Mostrar error "Formato no válido. Usa JPG o PNG"
+- [x] Mostrar error "La imagen supera los 10MB"
+- [x] Limpiar error al seleccionar nueva imagen
 
 ## Botón Analizar
 
-- [ ] Agregar botón "Analizar"
-- [ ] Deshabilitar cuando no hay imagen válida
-- [ ] Estilo deshabilitado: opacity-50, cursor-not-allowed
+- [x] Agregar botón "Analizar"
+- [x] Deshabilitar cuando no hay imagen válida
+- [x] Estilo deshabilitado: opacity-50, cursor-not-allowed
 
 ## Estilos
 
@@ -49,6 +49,6 @@
 - [ ] Probar con archivo PNG válido
 - [ ] Probar con archivo GIF (debe fallar)
 - [ ] Probar con archivo PDF (debe fallar)
-- [ ] Probar con archivo de 6MB (debe fallar)
-- [ ] Probar con archivo de 4MB (debe pasar)
+- [ ] Probar con archivo de 11MB (debe fallar)
+- [ ] Probar con archivo de 9MB (debe pasar)
 - [ ] Probar en móvil y escritorio

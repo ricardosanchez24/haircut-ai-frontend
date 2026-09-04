@@ -1,24 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import UploadImage from '../UploadImage'
-
-const selectFile = (fileInput, file) => {
-  fireEvent.change(fileInput, { target: { files: [file] } })
-}
-
-const createFile = (name, type, size = 1024) => {
-  return new File(['x'.repeat(size)], name, { type })
-}
+import { selectFile, createFile } from './testHelpers'
 
 describe('UploadImage', () => {
   it('renders upload zone with text', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     expect(screen.getByText(/selecciona una foto/i)).toBeInTheDocument()
   })
 
   it('renders hidden file input', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const input = document.querySelector('input[type="file"]')
     expect(input).toBeInTheDocument()
@@ -27,13 +20,13 @@ describe('UploadImage', () => {
   })
 
   it('shows upload button when no image selected', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     expect(screen.getByRole('button', { name: /selecciona una foto/i })).toBeInTheDocument()
   })
 
   it('opens file dialog when upload button is clicked', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const uploadButton = screen.getByRole('button', { name: /selecciona una foto/i })
     const fileInput = document.querySelector('input[type="file"]')
@@ -45,7 +38,7 @@ describe('UploadImage', () => {
   })
 
   it('shows image preview when file is selected', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const fileInput = document.querySelector('input[type="file"]')
     selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
@@ -54,7 +47,7 @@ describe('UploadImage', () => {
   })
 
   it('hides upload button when image is selected', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const fileInput = document.querySelector('input[type="file"]')
     selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
@@ -63,7 +56,7 @@ describe('UploadImage', () => {
   })
 
   it('shows change image button when image is selected', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const fileInput = document.querySelector('input[type="file"]')
     selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
@@ -72,7 +65,7 @@ describe('UploadImage', () => {
   })
 
   it('clears preview when change image is clicked', () => {
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const fileInput = document.querySelector('input[type="file"]')
     selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
@@ -86,7 +79,7 @@ describe('UploadImage', () => {
 
   it('revokes object URL when clearing preview', () => {
     const revokeSpy = vi.spyOn(URL, 'revokeObjectURL')
-    render(<UploadImage />)
+    render(<UploadImage onAnalyze={() => {}} />)
     
     const fileInput = document.querySelector('input[type="file"]')
     selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
@@ -96,53 +89,5 @@ describe('UploadImage', () => {
     
     expect(revokeSpy).toHaveBeenCalledTimes(1)
     revokeSpy.mockRestore()
-  })
-
-  it('shows error when file format is invalid', () => {
-    render(<UploadImage />)
-    
-    const fileInput = document.querySelector('input[type="file"]')
-    selectFile(fileInput, createFile('test.gif', 'image/gif'))
-    
-    expect(screen.getByText(/formato no válido/i)).toBeInTheDocument()
-  })
-
-  it('shows error when file size exceeds 10MB', () => {
-    render(<UploadImage />)
-    
-    const fileInput = document.querySelector('input[type="file"]')
-    const largeFile = createFile('large.jpg', 'image/jpeg', 10 * 1024 * 1024 + 1)
-    selectFile(fileInput, largeFile)
-    
-    expect(screen.getByText(/la imagen supera los 10mb/i)).toBeInTheDocument()
-  })
-
-  it('does not show preview when file is invalid', () => {
-    render(<UploadImage />)
-    
-    const fileInput = document.querySelector('input[type="file"]')
-    selectFile(fileInput, createFile('test.gif', 'image/gif'))
-    
-    expect(screen.queryByRole('img', { name: /vista previa/i })).not.toBeInTheDocument()
-  })
-
-  it('shows upload button when file is invalid', () => {
-    render(<UploadImage />)
-    
-    const fileInput = document.querySelector('input[type="file"]')
-    selectFile(fileInput, createFile('test.gif', 'image/gif'))
-    
-    expect(screen.getByRole('button', { name: /selecciona una foto/i })).toBeInTheDocument()
-  })
-
-  it('clears error when selecting new valid file', () => {
-    render(<UploadImage />)
-    
-    const fileInput = document.querySelector('input[type="file"]')
-    selectFile(fileInput, createFile('test.gif', 'image/gif'))
-    expect(screen.getByText(/formato no válido/i)).toBeInTheDocument()
-    
-    selectFile(fileInput, createFile('test.jpg', 'image/jpeg'))
-    expect(screen.queryByText(/formato no válido/i)).not.toBeInTheDocument()
   })
 })
