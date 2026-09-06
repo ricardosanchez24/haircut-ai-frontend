@@ -19,7 +19,9 @@ const mockRecommendations = [
   }
 ]
 
-function ResultsDisplay({ recommendations = mockRecommendations, onRetry }) {
+function ResultsDisplay({ recommendations, onRetry }) {
+  const data = recommendations?.length > 0 ? recommendations : mockRecommendations
+  
   return (
     <div className="max-w-2xl mx-auto">
       <h2 className="text-2xl font-bold text-center mb-8">
@@ -27,7 +29,7 @@ function ResultsDisplay({ recommendations = mockRecommendations, onRetry }) {
       </h2>
       
       <div className="space-y-4">
-        {recommendations.map((corte, index) => (
+        {data.map((corte, index) => (
           <div key={index} className="bg-white border rounded-lg p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">{corte.icon}</span>
