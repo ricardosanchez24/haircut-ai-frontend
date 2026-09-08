@@ -1,18 +1,21 @@
 const mockRecommendations = [
   {
     name: "Fade Degradado con Textura",
+    image: null,
     icon: "✨",
     description: "Este corte te queda bien porque tu forma de rostro ovalada se balancea con el degradado lateral. La textura en la parte superior agrega volumen y movimiento.",
     howToAsk: "Pídele un fade bajo o medio con transición suave. En la parte superior, pide textura con tijera de 3-4cm. Lleva una referencia foto."
   },
   {
     name: "Texturizado con Tijera",
+    image: null,
     icon: "✂️",
     description: "Por tu tipo de cabello ligeramente ondulado, este corte aprovecha la textura natural. El largo medio permite diferentes estilos.",
     howToAsk: "Pide un corte con tijera de 5-6cm en la parte superior. Pide que mantenga la textura natural. Puedes usar cera para estilizar."
   },
   {
     name: "Clásico con Flequillo",
+    image: null,
     icon: "💇",
     description: "Tu densidad de cabello es perfecta para este estilo atemporal. El flequillo enmarca tu rostro y resalta tus facciones.",
     howToAsk: "Pide un corte clásico con flequillo lateral. Largo de 4-5cm arriba, gradual hacia los lados. Pide que deje el flequillo para peinar hacia un lado."
@@ -31,8 +34,16 @@ function ResultsDisplay({ recommendations, onRetry }) {
       <div className="space-y-4">
         {data.map((corte, index) => (
           <div key={index} className="bg-white border rounded-lg p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-2xl">{corte.icon}</span>
+            <div className="flex items-center gap-3 mb-3">
+              {corte.image ? (
+                <img 
+                  src={corte.image} 
+                  alt={corte.name}
+                  className="w-16 h-16 rounded-lg object-cover border border-gray-200"
+                />
+              ) : (
+                <span className="text-3xl">{corte.icon}</span>
+              )}
               <h3 className="font-bold text-lg">{corte.name}</h3>
             </div>
             
