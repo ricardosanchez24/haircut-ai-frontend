@@ -31,7 +31,7 @@ Básicamente, para ti.
 Piensa en esto: anteriormente ir al barbero era como ir al supermercado sin lista — llegabas y pedías "algo bonito". Ahora, con HaircutAI, es como tener un mapa antes del viaje: sabes exactamente a dónde vas y por qué.
 
 <p align="center">
-  <img src="public/screenshot-results.png" alt="HaircutAI Resultados" width="600"/>
+  <img src="public/screenshot-results.svg" alt="HaircutAI Resultados" width="600"/>
 </p>
 
 1. **Subes una foto** — solo necesitas una selfie con buena luz
