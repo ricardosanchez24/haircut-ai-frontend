@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f9fafb"/>
+  
+  <!-- Header -->
+  <rect width="800" height="60" fill="#1f2937"/>
+  <text x="30" y="38" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">✂️ HaircutAI</text>
+  <text x="750" y="38" fill="#9ca3af" font-family="Arial, sans-serif" font-size="14">Inicio</text>
+  
+  <!-- Title -->
+  <text x="400" y="110" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Tus 3 estilos recomendados</text>
+  
+  <!-- Card 1 -->
+  <rect x="40" y="140" width="240" height="200" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="70" y="175" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="24">✨</text>
+  <text x="100" y="175" fill="#111827" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Fade Degradado con Textura</text>
+  <text x="60" y="200" fill="#6b7280" font-family="Arial, sans-serif" font-size="11">Este corte te queda bien porque tu forma de rostro ovalada se balancea con el degradado lateral.</text>
+  <rect x="55" y="240" width="210" height="60" rx="8" fill="#f3f4f6"/>
+  <text x="65" y="258" fill="#374151" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Cómo pedirlo al barbero:</text>
+  <text x="65" y="275" fill="#6b7280" font-family="Arial, sans-serif" font-size="9">Pídele un fade bajo o medio con transición suave.</text>
+  
+  <!-- Card 2 -->
+  <rect x="280" y="140" width="240" height="200" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="310" y="175" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="24">✂️</text>
+  <text x="340" y="175" fill="#111827" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Texturizado con Tijera</text>
+  <text x="290" y="200" fill="#6b7280" font-family="Arial, sans-serif" font-size="11">Por tu tipo de cabello ligeramente ondulado, este corte aprovecha la textura natural.</text>
+  <rect x="295" y="240" width="210" height="60" rx="8" fill="#f3f4f6"/>
+  <text x="305" y="258" fill="#374151" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Cómo pedirlo al barbero:</text>
+  <text x="305" y="275" fill="#6b7280" font-family="Arial, sans-serif" font-size="9">Pide un corte con tijera de 5-6cm en la parte superior.</text>
+  
+  <!-- Card 3 -->
+  <rect x="520" y="140" width="240" height="200" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="550" y="175" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="24">💇</text>
+  <text x="580" y="175" fill="#111827" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Clásico con Flequillo</text>
+  <text x="530" y="200" fill="#6b7280" font-family="Arial, sans-serif" font-size="11">Tu densidad de cabello es perfecta para este estilo atemporal.</text>
+  <rect x="535" y="240" width="210" height="60" rx="8" fill="#f3f4f6"/>
+  <text x="545" y="258" fill="#374151" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Cómo pedirlo al barbero:</text>
+  <text x="545" y="275" fill="#6b7280" font-family="Arial, sans-serif" font-size="9">Pide un corte clásico con flequillo lateral.</text>
+  
+  <!-- Button -->
+  <rect x="300" y="400" width="200" height="50" rx="10" fill="url(#purpleGrad)"/>
+  <text x="400" y="430" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Intentar con otra foto</text>
+  
+  <!-- Footer -->
+  <rect y="460" width="800" height="40" fill="#f3f4f6"/>
+  <text x="400" y="485" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="10">© 2026 HaircutAI. Todos los derechos reservados.</text>
+</svg>

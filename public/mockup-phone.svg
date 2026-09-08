@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700" width="400" height="700">
+  <!-- Phone frame -->
+  <defs>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Phone body -->
+  <rect x="50" y="50" width="300" height="600" rx="40" fill="url(#phoneGrad)" filter="url(#shadow)"/>
+  
+  <!-- Screen -->
+  <rect x="65" y="90" width="270" height="520" rx="20" fill="#ffffff"/>
+  
+  <!-- Header -->
+  <rect x="65" y="90" width="270" height="60" rx="20" fill="#1f2937"/>
+  <text x="100" y="128" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✂️ HaircutAI</text>
+  <text x="280" y="128" fill="#9ca3af" font-family="Arial, sans-serif" font-size="12">Inicio</text>
+  
+  <!-- Main content -->
+  <rect x="80" y="170" width="240" height="180" rx="10" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- Upload icon -->
+  <circle cx="200" cy="230" r="30" fill="#e0e7ff"/>
+  <path d="M185 230 L200 215 L215 230 M200 215 L200 245" stroke="#6366f1" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <text x="200" y="280" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Arrastra tu foto aquí</text>
+  <text x="200" y="300" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="10">o haz click para seleccionar</text>
+  
+  <!-- Analyze button -->
+  <rect x="120" y="380" width="160" height="45" rx="10" fill="url(#purpleGrad)"/>
+  <text x="200" y="408" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🧠 Analizar</text>
+  
+  <!-- Footer -->
+  <rect x="65" y="550" width="270" height="60" rx="20" fill="#f9fafb"/>
+  <text x="200" y="585" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="10">© 2026 HaircutAI</text>
+</svg>
